@@ -20,9 +20,11 @@ CREATE TABLE BILL_OF_MATERIALS
  quantity_8       INT
 )
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
 TBLPROPERTIES("skip.header.line.count"="1");
 ;
-LOAD DATA LOCAL INPATH '/home/maria_dev/testeBV/bill_of_materials.csv' into table BILL_OF_MATERIALS;
+
+LOAD DATA INPATH '/user/hive/ricardo_g_souza/bill_of_materials.csv' OVERWRITE INTO TABLE BILL_OF_MATERIALS;
 
 DROP TABLE IF EXISTS COMP_BOSS;
 CREATE TABLE COMP_BOSS
@@ -44,9 +46,10 @@ CREATE TABLE COMP_BOSS
  weight DOUBLE
 )
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
 TBLPROPERTIES("skip.header.line.count"="1");
-;
-LOAD DATA LOCAL INPATH '/home/maria_dev/testeBV/comp_boss.csv' into table COMP_BOSS;
+
+LOAD DATA INPATH '/user/hive/ricardo_g_souza/comp_boss.csv' OVERWRITE INTO TABLE COMP_BOSS;
 
 DROP TABLE IF EXISTS PRICE_QUOTE;
 CREATE TABLE PRICE_QUOTE
@@ -61,7 +64,8 @@ CREATE TABLE PRICE_QUOTE
  cost               DOUBLE
 )
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
 TBLPROPERTIES("skip.header.line.count"="1");
-;
-LOAD DATA LOCAL INPATH '/home/maria_dev/testeBV/price_quote.csv' into table PRICE_QUOTE;
+
+LOAD DATA INPATH '/user/hive/ricardo_g_souza/price_quote.csv' OVERWRITE INTO TABLE PRICE_QUOTE;
 
